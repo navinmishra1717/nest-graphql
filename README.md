@@ -1,1 +1,1 @@
-# nest-graphql
+# nestjs-graphql
