@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Post {
+  id: Float!
+  title: String!
+  content: String!
+  votes: Float!
+  author: Author!
+}
+
+type Author {
+  id: Float!
+  name: String!
+  age: Float
+  company: String
+  posts: [Post!]
+}
+
+type Query {
+  authors: [Author!]!
+  getAuthor(id: Int!): Author!
+  getPost(postId: Int!): Post!
+}
+
+type Mutation {
+  upvotePost(upvotePostData: upvotePostInputDto!): Post!
+}
+
+input upvotePostInputDto {
+  postId: Float!
+}
