@@ -5,5 +5,6 @@ import { PostService } from 'src/post/post.service';
 
 @Module({
   providers: [AuthorResolver, AuthorService, PostService],
+  exports: [AuthorService],
 })
 export class AuthorModule {}

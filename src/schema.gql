@@ -7,7 +7,9 @@ type Post {
   title: String!
   content: String!
   votes: Float!
+  authorId: Float!
   author: Author!
+  getAuthor: Author!
 }
 
 type Author {

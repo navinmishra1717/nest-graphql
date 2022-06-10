@@ -15,6 +15,9 @@ export class Post {
   @Field()
   votes: number;
 
+  @Field()
+  authorId: number;
+
   @Field(() => Author)
   author?: Author;
 }

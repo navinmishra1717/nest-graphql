@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Post } from '../post/entities/post.entity';
+import { Author } from '../author/entities/author.entity';
+import { AuthorService } from 'src/author/author.service';
 
 interface FindPostOptions {
   authorId?: number;
@@ -7,11 +9,13 @@ interface FindPostOptions {
 
 @Injectable()
 export class PostService {
+  constructor(private authorService: AuthorService) {}
   private posts: Post[] = [
     {
       id: 1,
       title: 'Post 1',
       content: 'Content 1',
+      authorId: 1,
       author: {
         id: 1,
         name: 'John Doe',
@@ -26,12 +30,14 @@ export class PostService {
         id: 1,
         name: 'John Doe',
       },
+      authorId: 1,
       votes: 2,
     },
     {
       id: 3,
       title: 'Post 3',
       content: 'Content 3',
+      authorId: 2,
       author: {
         id: 1,
         name: 'John Doe',
@@ -55,5 +61,9 @@ export class PostService {
     }
     post.votes += 1;
     return post;
+  }
+
+  getAuthor(authorId: number): Author {
+    return this.authorService.findOne(authorId);
   }
 }
