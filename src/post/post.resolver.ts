@@ -14,11 +14,6 @@ export class PostResolver {
     return this.postService.findOne(id);
   }
 
-  //   @Mutation(() => Post)
-  //   async upvotePost(@Args({ name: 'postId', type: () => Int }) id: number) {
-  //     return this.postService.upvote(id);
-  //   }
-
   @Mutation(() => Post)
   async upvotePost(@Args('upvotePostData') upvotePostData: upvotePostInputDto) {
     return this.postService.upvote(upvotePostData.postId);

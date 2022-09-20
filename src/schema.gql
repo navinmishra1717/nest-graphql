@@ -17,11 +17,11 @@ type Author {
   name: String!
   age: Float
   company: String
-  posts: [Post!]
+  posts: [Post!]!
 }
 
 type Query {
-  authors: [Author!]!
+  getAuthors: [Author!]!
   getAuthor(id: Int!): Author!
   getPost(postId: Int!): Post!
 }
