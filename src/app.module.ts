@@ -6,9 +6,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthorModule } from './author/author.module';
 import { PostModule } from './post/post.module';
+import { QueueProvider } from './queue';
 
 @Module({
   imports: [
+    QueueProvider,
     AuthorModule,
     PostModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({

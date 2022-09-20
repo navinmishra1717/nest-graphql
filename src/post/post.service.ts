@@ -9,7 +9,7 @@ interface FindPostOptions {
 
 @Injectable()
 export class PostService {
-  constructor(private authorService: AuthorService) {}
+  constructor(private readonly authorService: AuthorService) {}
   private posts: Post[] = [
     {
       id: 1,
